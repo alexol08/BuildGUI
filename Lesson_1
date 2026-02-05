@@ -1,0 +1,88 @@
+import pygame
+import random
+import math
+pygame.init()
+
+width=500
+height=500
+
+window=pygame.display.set_mode((width,height))
+pygame.display.set_caption("Asteroid game")
+clock=pygame.time.clock(30)
+
+bg = pygame.image.load("L1.py\Images\starbg.png")
+alien=pygame.image.load("L1.py/Images/alienShip.png")
+rocket=pygame.image.load("L1.py/Images/spaceRocket.png")
+star=pygame.image.load("L1.py\Images\star.png")
+asteroid50=pygame.image.load("L1.py/Images/asteroid50.png")
+asteroid100=pygame.image.load("L1.py/Images/asteroid100.png")
+asteroid150=pygame.image.load("L1.py/Images/asteroid150.png")
+
+big_bang=pygame.mixer.sound("L1.py/Sounds/bangLarge.wav")
+small_bang=pygame.mixer.sound("L1.py/Sounds/bangSmall.wav")
+shoot=pygame.mixer.sound("L1.py\Sounds\shoot.wav")
+
+game_over=False
+lives=3
+score=0
+rapid_fire=False
+Sound_on=True
+Start_rapid=-1
+High_score=0
+
+class Player(object):
+    def __init__(self):
+        self.img=rocket
+        self.width=self.img.get_width()
+        self.height=self.img.get_height()
+        self.x=width//2
+        self.y=height//2
+        self.angle=0
+        self.rotate_ship=pygame.transform.rotate(self.img, self.angle)
+        self.rotate_rect=self.rotate_ship.get_rect()
+        self.rotate_rect.center=(self.x, self.y)
+        self.cosine=math.cos(math.radians(self.angle + 90))
+        self.sine=math.sin(math.radians(self.angle +90))
+        self.head=(self.x + self.cosine*self.width//2, self.y - self.sine*self.height//2)
+    
+    def draw(self, window):
+        window.blit(self.rotate_ship, self.rotate_rect)
+    def turn_left(self):
+        self.angle+=5
+        self.update_rotation()
+    def turn_right(self):
+        self.angle -=5
+        self.update_rotation()
+    def move_forward(self):
+        self.x +=self.cosine*6
+        self.y -=self.sine*6
+        self.update_rotation()
+    def update_rotation(self):
+        self.rotate_ship=pygame.transform.rotate(self.img, self.angle)
+        self.rotate_rect=self.rotate_ship.get_rect()
+        self.rotate_rect.center=(self.x, self.y)
+        self.cosine=math.cos(math.radians(self.angle + 90))
+        self.sine=math.sin(math.radians(self.angle +90))
+        self.bullet=(self.x + self.cosine*self.width//2, self.y - self.sine*self.height//2)
+    def update_loc(self):
+        if self.x>width+50:
+            self.x=0
+        elif self.x<0-self.width:
+            self.x=width
+        elif self.y<-50:
+            self.y=height
+        elif self.y>height + 50:
+            self.y=0
+
+    class Bullet(object):
+        def __init__(self):
+           self.point= Player.head
+           self.x, self.y=self.point
+           
+
+        
+
+while True:
+    for event in pygame.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
