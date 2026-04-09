@@ -1,0 +1,18 @@
+from tkinter import *
+window = Tk()
+window.geometry('500x500')
+window.config(bg='light blue')
+
+
+title=Label(window, text='Subscribe to our Newsletter', bg='light blue', font=('Arial', 20), fg ='black')
+title.grid(row=0, column=1, columnspan=2, pady=20)
+
+email=Label(window, text='Email: ', bg='light blue', font=('Arial', 12))
+email.grid(row=1, column=0, padx=0)
+
+enter=Entry(window, width=30)
+enter.grid(row=1, column=1, padx=0)
+
+subscribe=Button(window, text='Subsribe')
+subscribe.grid(row=2, column=1, columnspan=2, pady=20)
+window.mainloop()
