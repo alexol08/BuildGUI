@@ -1,0 +1,38 @@
+from tkinter import *
+from tkinter.ttk import *
+window=Tk()
+window.geometry('500x500')
+window.title('Menu bar example')
+
+menu_bar=Menu(window)
+window.config(menu=menu_bar)
+file=Menu(menu_bar, tearoff=0)
+menu_bar.add_cascade(label='File', menu=file)
+file.add_command(label='New file', command=None)
+file.add_command(label='Open file', command=None)
+file.add_command(label='Save file', command=None)
+
+file.add_separator()
+file.add_command(label='Exit', command=window.quit)
+
+edit=Menu(menu_bar, tearoff=0)
+menu_bar.add_cascade(label='Edit', menu=edit)
+edit.add_command(label='undo', command=None)
+edit.add_command(label='redo', command=None)
+edit.add_command(label='copy', command=None)
+edit.add_command(label='paste', command=None)
+edit.add_command(label='cut', command=None)
+
+edit.add_separator()
+edit.add_command(label='Find', command=None)
+
+help=Menu(menu_bar, tearoff=0)
+menu_bar.add_cascade(label='Help', menu=help)
+help.add_command(label='Tk help', command=None)
+help.add_command(label='About', command=None)
+help.add_command(label='Contact us', command=None)
+
+help.add_separator()
+help.add_command(label='Report issue', command=None)
+window.mainloop()
+
