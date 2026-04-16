@@ -17,7 +17,7 @@ Label (window, text = "What food would you like? : Sandwich, Hotdog, Pasta, Burg
 food_entry=Entry(window, width =30)
 food_entry.grid(row=3, column =0, padx=10)
 
-food_spin = Spinbox(window, values= {"Sandwich", "Hotdog", "Pasta", "Burger", "Nothing"})
+food_spin = Spinbox(window, values= ("Sandwich", "Hotdog", "Pasta", "Burger", "Nothing"))
 food_spin.grid(row=3, column=1, padx=10)
 
 Label(window, text= "What beverages would you like? Coke, Fanta, Orange juice, water or nothing?"
@@ -25,7 +25,7 @@ Label(window, text= "What beverages would you like? Coke, Fanta, Orange juice, w
 beverage_entry=Entry(window, width=30)
 beverage_entry.grid(row=5, column=0, padx=10)
 
-beverage_spin=Spinbox(window, values={"Coke", "Fanta", "Water", "Orange juice","Nothing "})
+beverage_spin=Spinbox(window, values=("Coke", "Fanta", "Water", "Orange juice","Nothing "))
 beverage_spin.grid(row=5, column=1, padx=10)
 
 Label(window, text= "What dessert would you like? Ice Cream, cake, brownie, or nothing?"
@@ -33,7 +33,7 @@ Label(window, text= "What dessert would you like? Ice Cream, cake, brownie, or n
 dessert_entry=Entry(window, width=30)
 dessert_entry.grid(row=7, column=0, padx=10)
 
-dessert_spin=Spinbox(window, values={"Ice crea", "Cake", "Brownie", "Nothing "})
+dessert_spin=Spinbox(window, values=("Ice crea", "Cake", "Brownie", "Nothing "))
 dessert_spin.grid(row=7, column=1, padx=10)
 
 
