@@ -1,0 +1,55 @@
+from tkinter import *
+window=Tk()
+window.title("Food Delivery App")
+window.geometry('700x400')
+window.config(bg='red')
+
+Label(window, text ='Email', bg="red").grid(row=0, column =0, padx=10, pady=10)
+email_entry = Entry(window, width=40)
+email_entry.grid(row=0, column=1, padx =10, pady=10)
+
+Label(window, text="Password", bg="red").grid(row=1, column=0, padx=10, pady=10)
+password_entry= Entry(window, width=40, show="*")
+password_entry.grid(row =1, column =1, padx =10, pady=10)
+
+Label (window, text = "What food would you like? : Sandwich, Hotdog, Pasta, Burger? or Nothing?", 
+       bg="red").grid(row=2, column=0, columnspan=2, padx=10, pady=0)
+food_entry=Entry(window, width =30)
+food_entry.grid(row=3, column =0, padx=10)
+
+food_spin = Spinbox(window, values= {"Sandwich", "Hotdog", "Pasta", "Burger", "Nothing"})
+food_spin.grid(row=3, column=1, padx=10)
+
+Label(window, text= "What beverages would you like? Coke, Fanta, Orange juice, water or nothing?"
+      , bg="red").grid(row=4, column=0, columnspan=2, padx=10, pady=10)
+beverage_entry=Entry(window, width=30)
+beverage_entry.grid(row=5, column=0, padx=10)
+
+beverage_spin=Spinbox(window, values={"Coke", "Fanta", "Water", "Orange juice","Nothing "})
+beverage_spin.grid(row=5, column=1, padx=10)
+
+Label(window, text= "What dessert would you like? Ice Cream, cake, brownie, or nothing?"
+      , bg="red").grid(row=6, column=0, columnspan=2, padx=10, pady=10)
+dessert_entry=Entry(window, width=30)
+dessert_entry.grid(row=7, column=0, padx=10)
+
+dessert_spin=Spinbox(window, values={"Ice crea", "Cake", "Brownie", "Nothing "})
+dessert_spin.grid(row=7, column=1, padx=10)
+
+
+def submit():
+    email=email_entry.get()
+    password=password.entry.get()
+    food=food_spin.get()
+    beverage=beverage_spin.get()
+    dessert=dessert_spin.get()
+
+    result_label.config(
+        text=f"Order Place|\n{food}, {beverage}, {dessert}"
+    )
+
+Button(window, text ="Submit order", command=submit).grid(row=8, column=0, columnspan=2, pady=20)
+
+result_label= Label(window, text ="",bg="red")
+result_label.grid(row=9, column=0, columnspan=2)
+window.mainloop()
