@@ -1,0 +1,24 @@
+from tkinter import *
+window=Tk()
+window.title('System Login')
+window.geometry('300x200')
+window.config(bg='light grey')
+
+user=Label(window, text='Username', bg='light grey')
+user.grid(row=0, column=0, padx=20, pady=15)
+
+pas=user=Label(window, text='Password', bg='light grey')
+pas.grid(row=1, column=0, padx=20, pady=15)
+
+user_enter=Entry(window, width=30)
+user_enter.grid(row=0, column=1, pady=15)
+
+pas_enter=Entry(window, width=30, show='*')
+pas_enter.grid(row=1, column=1, pady=15)
+
+login=Button(window, text='Login' , bg='Light green')
+login.grid(row=2, column=0, pady=15, padx=5)
+
+cancel=Button(window, text='Cancel' , bg='#e05c5c')
+cancel.grid(row=2, column=1, pady=15, padx=5)
+window.mainloop()
