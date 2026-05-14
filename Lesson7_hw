@@ -1,0 +1,28 @@
+from tkinter import *
+root=Tk()
+root.title("Shopping cart")
+root.geometry('300x350')
+top_frame=Frame(root)
+top_frame.pack(pady=10)
+label=Label(top_frame, text="Your Items", font=('Arial', 14))
+label.pack()
+gro_list=Listbox(top_frame, width=30, height=10, selectmode=MULTIPLE)
+gro_list.pack()
+gro_list.insert(END, "Chicken breast")
+gro_list.insert(END, "Rice")
+gro_list.insert(END, "Eggs")
+gro_list.insert(END, "Brocoli")
+gro_list.insert(END, "Bananas")
+gro_list.insert(END, "Greek yogurt")
+gro_list.insert(END, "Tortillas")
+gro_list.insert(END, "Peanut butter")
+
+# mid_frame=Frame(root)
+# mid_frame.pack(pady=10)
+
+bot_frame=Frame(root, bg="dark grey")
+bot_frame.pack(fill=X, side=BOTTOM, ipady=10)
+check_but=Button(bot_frame, text="Checkout", bg="yellow", font=("Arial", 14, 'bold'), width=12)
+check_but.pack(pady=20)
+
+root.mainloop()
