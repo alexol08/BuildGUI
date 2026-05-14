@@ -1,0 +1,17 @@
+from tkinter import *
+from tkinter import messagebox
+root=Tk()
+root.geometry("300x200")
+
+label=Label(root, text= "I am a message box")
+label.pack()
+messagebox.showinfo("Information", "You're battery is low")
+messagebox.showerror("Error", "Wifi not working")
+messagebox.showwarning("Warning", "Potential virus threat")
+messagebox.askquestion("USB drive", "Do you wish to accept this external drive")
+messagebox.askyesno("Storage", "Would you like to offload chrome?")
+messagebox.askretrycancel("Connection attempt", "This attempt is UNSUCCESFUL")
+messagebox.askokcancel("Windows", "Download successful")
+messagebox.askyesnocancel("Question", "Does this work?")
+
+root.mainloop()
