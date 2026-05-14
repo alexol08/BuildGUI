@@ -1,0 +1,29 @@
+from tkinter import *
+from tkinter import messagebox
+root=Tk()
+root.title("Secure Login")
+root.geometry("300x300")
+
+def login():
+    username=user_enter.get()
+    password=pas_enter.get()
+
+    if username=="aol" and password=="1234":
+        messagebox.showinfo("Login Success", "Welcome, aol!")
+    else:
+        messagebox.showerror("Login failed", "Username or Password is incorrect")
+
+user=Label(root, text="Username:", font=("Arial", 12))
+user.pack(pady=10)
+user_enter=Entry(root, width=20)
+user_enter.pack()
+pas=Label(root, text= "Password:", font=("Arial", 12))
+pas.pack(pady=10)
+pas_enter=Entry(root, width=20, show='*')
+pas_enter.pack()
+log=Button(root, text="Login", bg="Light green", command=login)
+log.pack(pady=20)
+
+root.mainloop()
+
+
